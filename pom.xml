@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cutefool.coder</groupId>
+    <artifactId>mybatis-coder</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <parent>
+        <groupId>com.cutefool.commons</groupId>
+        <artifactId>commons</artifactId>
+        <version>4.0.4-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>mybatis-coder-generator-core</module>
+        <module>mybatis-coder-maven-plugin</module>
+        <module>mybatis-coder-generator-plugin</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>mybatis-coder</name>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.cutefool.commons</groupId>
+            <artifactId>commons-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.cutefool.commons</groupId>
+            <artifactId>commons-orm-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.cutefool.coder</groupId>
+                <artifactId>mybatis-coder-generator-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
