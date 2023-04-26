@@ -149,5 +149,4 @@ public interface JavaGenerator {
         return "src/main/java";
     }
 
-
 }

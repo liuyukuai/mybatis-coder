@@ -61,6 +61,7 @@ public final class DynamicJavaServiceGenerator implements JavaGenerator {
         String primaryKey = javaGeneratorContext.getPrimaryKey();
         String serviceImplCls_ = javaGeneratorContext.getServiceImplCls_();
         String interfaceDomain = JavaGenerator.domain(serviceImplCls_);
+        String queryDomain = JavaGenerator.domain(javaGeneratorContext.getQueryInterface());
         // 名称
         FullyQualifiedJavaType service = javaGeneratorContext.getServiceInstance();
         TopLevelClass serviceInstance = new TopLevelClass(service);
@@ -68,7 +69,7 @@ public final class DynamicJavaServiceGenerator implements JavaGenerator {
         serviceInstance.setVisibility(JavaVisibility.PUBLIC);
         // 设置注解
         serviceInstance.addAnnotation(Constants.SERVICE);
-        serviceInstance.setSuperClass(new FullyQualifiedJavaType(interfaceDomain + "<" + javaGeneratorContext.getDto() + ", " + domain + ", " + primaryKey + ", " + javaGeneratorContext.getMapper() + ", Queryable>"));
+        serviceInstance.setSuperClass(new FullyQualifiedJavaType(interfaceDomain + "<" + javaGeneratorContext.getDto() + ", " + domain + ", " + primaryKey + ", " + javaGeneratorContext.getMapper() + ", " + queryDomain + ">"));
         serviceInstance.addSuperInterface(javaGeneratorContext.getServiceInterface());
         addInterfaceImports(javaGeneratorContext, serviceInstance);
         return JavaGenerator.javaFile(serviceInstance, javaGeneratorContext.getContext());
